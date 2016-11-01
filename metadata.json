@@ -1,0 +1,16 @@
+{
+  "name": "glarizza-policy_based_autosigner",
+  "version": "0.1.0",
+  "author": "glarizza",
+  "summary": "A module to configure Puppet's policy-based autosigning service",
+  "license": "Apache-2.0",
+  "source": "http://github.com/glarizza/puppet-policy_based_autosigner",
+  "project_page": "https://github.com/glarizza/puppet-policy_based_autosigner",
+  "issues_url": "https://github.com/glarizza/puppet-policy_based_autosigner/issues",
+  "dependencies": [
+    {"name":"fiddyspence-hash_file","version_requirement":">= 1.0.3"},
+    {"name":"puppetlabs-inifile","version_requirement":">= 1.0.0"}
+  ],
+  "data_provider": null
+}
+

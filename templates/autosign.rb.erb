@@ -1,0 +1,18 @@
+##!/opt/puppetlabs/puppet/bin/ruby
+require 'puppet/ssl'
+
+csr        = Puppet::SSL::CertificateRequest.from_s(STDIN.read)
+valid_pass = <%= @server_side_valid_password %>
+
+csr_pass = csr.custom_attributes.find do |a|
+  a['oid'] == 'challengePassword' or
+  a['oid'] == '1.2.840.113549.1.9.7'
+end
+
+if csr_pass['value'] == valid_pass
+  exit 0
+else
+  exit 1
+end
+
+# curl -k https://franken:8140/packages/current/install.bash | bash -s custom_attributes:1.2.840.113549.1.9.7=S3cr3tP@ssw0rd extension_requests:pp_role=webserver
